@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            opacity: 0; /* Initial opacity set to 0 */
+            animation: fadeInAnimation 1s ease forwards; /* Apply fade-in animation */
+        }
+
+        @keyframes fadeInAnimation {
+            to {
+                opacity: 1; /* Gradually increase opacity to 1 */
+            }
+        }
+
+        #header {
+            background-color: #000220;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        #footer {
+            background-color: #000220;
+            padding: 10px;
+            text-align: center;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #image-background {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1000;
+        }
+
+        #taskPanel {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 50px 150px 10px 150px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+        }
+
+        #outputMessage {
+            margin-top: 10px;
+            color: green;
+            font-weight: bold;
+        }
+
+        button {
+            margin-right: 10px;
+            padding: 8px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #5d00ff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0044ff;
+        }
+
+        .task {
+            margin-bottom: 5px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <h1>Task Manager</h1>
+</div>
+
+<img src="../image/bg.jpg" id="image-background" alt="Background Image">
+
+<div id="taskPanel">
+    <h2 style="margin-bottom: 15px;">Task List</h2>
+    <div id="taskListOutput"></div>
+</div>
+
+<center>
+    <button onclick="addTask()">Add Task</button>
+    <button onclick="markTaskCompleted()">Mark Task as Completed</button>
+    <button onclick="removeTask()">Remove Task</button>
+    <button onclick="displayTaskList()">Display Task List</button>
+</center>
+
+<div id="outputMessage"></div>
+
+<div id="footer">
+    <p>&copy; 2024 Task Manager. All rights reserved.</p>
+</div>
+
+<script>
+    const taskList = [];
+    const taskListOutput = document.getElementById("taskListOutput");
+
+    function updateTaskListOutput() {
+        taskListOutput.innerHTML = "";
+        if (taskList.length === 0) {
+            taskListOutput.innerHTML = "<p>Task list is empty.</p>";
+        } else {
+            taskList.forEach((task, index) => {
+                const taskStatus = task.completed ? "[x]" : "[ ]";
+                const taskDate = formatDate(task.date);
+                const taskTime = formatTime(task.date);
+
+                const taskElement = document.createElement("div");
+                taskElement.classList.add("task");
+                taskElement.textContent = `${index + 1}. ${taskStatus} ${task.task} - ${taskDate} ${taskTime}`;
+                taskListOutput.appendChild(taskElement);
+            });
+        }
+    }
+
+    function formatDate(dateTimeString) {
+        const date = new Date(dateTimeString);
+        return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+    }
+
+    function formatTime(dateTimeString) {
+        const date = new Date(dateTimeString);
+        const hours = date.getHours().toString().padStart(2, '0');
+        const minutes = date.getMinutes().toString().padStart(2, '0');
+        return `${hours}:${minutes}`;
+    }
+
+    function addTask() {
+        const numTasks = prompt("Enter the number of tasks to add:");
+        const outputMessage = document.getElementById("outputMessage");
+        if (numTasks && !isNaN(numTasks) && numTasks > 0) {
+            const currentDateTime = new Date().toLocaleString();
+            for (let i = 0; i < numTasks; i++) {
+                const newTask = prompt(`Enter task #${i + 1}:`);
+                if (newTask) {
+                    taskList.push({ task: newTask, completed: false, date: currentDateTime });
+                    console.log("Task added:", `[ ] ${newTask} - ${currentDateTime}`);
+                }
+            }
+            outputMessage.textContent = `${numTasks} task(s) successfully added!`;
+            hideTaskList();
+        } else {
+            outputMessage.textContent = "Invalid input. Please enter a valid number greater than 0.";
+        }
+    }
+
+    function markTaskCompleted() {
+        const numTasks = prompt("Enter the number of tasks to mark as completed:");
+        const outputMessage = document.getElementById("outputMessage");
+        if (numTasks && !isNaN(numTasks) && numTasks > 0) {
+            const currentDateTime = new Date().toLocaleString();
+            for (let i = 0; i < numTasks; i++) {
+                const indexToMark = prompt(`Enter the task index to mark as completed (#${i + 1}):`);
+                if (indexToMark && indexToMark >= 1 && indexToMark <= taskList.length) {
+                    taskList[indexToMark - 1].completed = true;
+                    taskList[indexToMark - 1].date = currentDateTime;
+                    console.log("Task marked as completed:", `[x] ${taskList[indexToMark - 1].task} - ${currentDateTime}`);
+                } else {
+                    outputMessage.textContent = `Invalid task index for task #${i + 1}.`;
+                    return;
+                }
+            }
+            outputMessage.textContent = `${numTasks} task(s) marked as completed successfully!`;
+            hideTaskList();
+        } else {
+            outputMessage.textContent = "Invalid input. Please enter a valid number greater than 0.";
+        }
+    }
+
+    function removeTask() {
+        const numTasks = prompt("Enter the number of tasks to remove:");
+        const outputMessage = document.getElementById("outputMessage");
+        if (numTasks && !isNaN(numTasks) && numTasks > 0) {
+            for (let i = 0; i < numTasks; i++) {
+                const indexToRemove = prompt(`Enter the task index to remove (#${i + 1}):`);
+                if (indexToRemove && indexToRemove >= 1 && indexToRemove <= taskList.length) {
+                    const removedTask = taskList.splice(indexToRemove - 1, 1)[0];
+                    console.log("Task removed:", `[x] ${removedTask.task} - ${removedTask.date}`);
+                } else {
+                    outputMessage.textContent = `Invalid task index for task #${i + 1}.`;
+                    return;
+                }
+            }
+            outputMessage.textContent = `${numTasks} task(s) removed successfully!`;
+            hideTaskList();
+        } else {
+            outputMessage.textContent = "Invalid input. Please enter a valid number greater than 0.";
+        }
+    }
+
+    function displayTaskList() {
+        const outputMessage = document.getElementById("outputMessage");
+        outputMessage.textContent = ""; // Clear the output message when displaying the task list
+        updateTaskListOutput();
+        showTaskList();
+    }
+
+    function hideTaskList() {
+        taskListOutput.style.display = "none";
+    }
+
+    function showTaskList() {
+        taskListOutput.style.display = "block";
+    }
+</script>
+
+</body>
+</html>

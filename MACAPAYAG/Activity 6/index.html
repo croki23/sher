@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Modal style */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height:100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+        }
+
+        .modal-content {
+            background-color: transparent; /* Set background color to transparent */
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            margin-left: 150px;
+            margin-top: 60px;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* Close button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: rgb(254, 0, 0);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Border style for Tanjiro modal */
+        .tanjiro-border {
+            border: 3px solid transparent; /* Set initial border color to transparent */
+            border-image: linear-gradient(to right, #ff5733, #ffa533, #ffd133, #fff133, #fffb33); /* Gradient border color */
+            border-image-slice: 1; /* Ensure the entire border area is covered by the gradient */
+        }
+
+        /* Border style for Nezuko modal */
+        .nezuko-border {
+            border: 3px solid; /* Set ang border sa 3px solid */
+            border-color: #ff6b6b; /* Ang color sa border */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        /* Border style for Zenitsu modal */
+        .zenitsu-border {
+            border: 3px solid transparent; /* Set initial border color to transparent */
+            border-image: linear-gradient(to right, #FFD700, #FF8C00); /* Gradient border color */
+            border-image-slice: 1; /* Ensure the entire border area is covered by the gradient */
+        }
+
+        /* Border style for Inosuke modal */
+        .inosuke-border {
+    border: 3px solid #D3D3D3; /* Set border color to match Inosuke's boar skin color */
+    border-radius: 5px; /* Rounded corners */
+}
+
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="title">Demon Slayer</h1>
+        <nav class="navbar">
+          <ul>
+            <li><a href="#sectionOne">Intro Page</a></li>
+            <li><a href="#sectionTwo">Main Characters</a></li>
+          </ul>
+        </nav>
+      </header>      
+      
+    <div class="sectionOne" id="sectionOne"></div>
+
+    <div class="sectionTwo" id="sectionTwo"></div>
+    
+    <audio id="magicSound" src="demon slayer.mp3"></audio>
+
+    <!-- Modal pop-up for Tanjiro video -->
+    <div id="tanjiroModal" class="modal">
+        <div class="modal-content tanjiro-border">
+            <span class="close">&times;</span>
+            <iframe width="900" height="500" src="https://www.youtube.com/embed/ON2382Rg6G4?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+    
+    <!-- Modal pop-up for Nezuko video -->
+    <div id="nezukoModal" class="modal">
+        <div class="modal-content nezuko-border">
+            <span class="close closeNezuko">&times;</span>
+            <iframe width="900" height="500" src="https://www.youtube.com/embed/56WUfNekDhs?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Modal pop-up for Zenitsu video -->
+    <div id="zenitsuModal" class="modal">
+        <div class="modal-content zenitsu-border">
+            <span class="close closeZenitsu">&times;</span>
+            <iframe width="900" height="500" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Modal pop-up for Inosuke video -->
+    <div id="inosukeModal" class="modal">
+        <div class="modal-content inosuke-border">
+            <span class="close closeInosuke">&times;</span>
+            <iframe width="900" height="500" src="https://www.youtube.com/embed/XEy4LP-dKH8?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+</body>
+</html>

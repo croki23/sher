@@ -1,0 +1,169 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url('https://wallpaperaccess.com/full/1648578.jpg'); /* Update the background image URL */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+header {
+    background-color: rgba(2, 64, 89, 0.8); /* Dark Blue */
+    color: #FFF;
+    text-align: center;
+    padding: 20px;
+}
+
+header .anime-logo {
+    width: 150px;
+    height: auto;
+}
+
+nav {
+    background-color: rgba(255, 255, 255, 0.7); /* Light Grey */
+    text-align: center;
+    padding: 10px;
+    backdrop-filter: blur(10px);
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+    transition: transform 0.3s ease;
+}
+
+nav ul li:hover {
+    transform: translateY(-3px);
+}
+
+nav ul li a {
+    color: #000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li:hover a {
+    color: #FFC72C; /* Gold */
+}
+
+#container {
+    max-width: 900px;
+    margin: 20px auto; /* Add margin to separate from the edges of the viewport */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* White */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(0, 0, 0, 0.2); /* Add a border */
+    animation: fadeIn 1s ease; /* Apply animation */
+}
+
+#Title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    border: 1px solid #000;
+    padding: 10px;
+}
+
+table th {
+    background-color: rgba(2, 64, 89, 0.8); /* Gold */
+    color: #000;
+}
+
+#rules {
+    margin-bottom: 20px;
+}
+
+#rules h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#rules ol {
+    margin-left: 40px;
+}
+
+#rules ol li {
+    margin-bottom: 10px;
+}
+
+#rules p {
+    text-align: center;
+}
+
+footer {
+    background-color: rgba(2, 64, 89, 0.8); /* Dark Blue */
+    color: #FFF;
+    text-align: center;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+}
+
+footer p {
+    margin: 0;
+}
+
+.tournament-image img {
+    width: 100%;
+    height: auto;
+}
+
+header {
+    background-color: rgba(2, 64, 89, 0.8); /* Dark Blue */
+    color: #FFF;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+header .baseball-logo {
+    width: 140px;
+    height: auto;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+header h1 {
+    margin: 0;
+    padding-left: 70px; /* Adjusted padding to accommodate the logo */
+}
+
+header h1 span {
+    color: #FFC72C; /* Gold */
+}
+
+nav ul li:hover a {
+    color: #FFC72C; /* Gold */
+    text-decoration: underline; /* Added underline effect on hover */
+}
+

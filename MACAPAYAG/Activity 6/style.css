@@ -1,0 +1,368 @@
+
+/* Animation for epic appearance */
+@keyframes epicButton {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Apply animation to the play intro sound button */
+.sec1btn {
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 35px;
+    background-color: crimson;
+    border: none;
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    animation: epicButton 0.5s ease-in-out; /* Apply the epicButton animation */
+}
+
+/* Adjust the hover effect */
+.sec1btn:hover {
+    background-color: #FF5733;
+}
+
+/* Animation for epic and magical appearance */
+@keyframes epicAppearance {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Apply animation to elements within .sectionOne */
+.sectionOne > * {
+    opacity: 0;
+    animation: epicAppearance 1.5s ease-in-out forwards;
+}
+
+/* Reset default styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Demon Slayer Theme', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Add Demon Slayer theme font */
+    text-align: justify;
+}
+
+body {
+    background-color: #16151d;
+}
+
+/* Define Demon Slayer theme font */
+@font-face {
+    font-family: 'Demon Slayer Theme';
+    src: url('path/to/DemonSlayerFont.woff') format('woff'); /* Replace 'path/to/DemonSlayerFont.woff' with the actual path to your font file */
+    /* Add additional src declarations for different font formats if needed */
+}
+
+.sectionOne {
+    color: rgb(232, 232, 232);
+    display: flex;
+    justify-content: center; /* Center align content horizontally */
+    align-items: center;
+    margin-top: 10%;
+    margin-bottom: 25%;
+    margin-left: 2%;
+    font-weight: bold;
+    width: 96%;
+    border-bottom: 2px groove;
+}
+
+.imgc {
+    width: 90%;
+    border-radius: 0px 50px 50px 50px;
+    margin-left: 6%;
+    margin-right: 5%;
+    border: 3px solid #222222;
+    padding: 10px;
+    box-shadow: 0px 0px 10px firebrick;
+}
+
+.title1 {
+    margin-bottom: 20px;
+    font-size: 40px;
+    color: crimson;
+}
+
+.para1 {
+    color: whitesmoke;
+}
+
+.sec1btn {
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 35px;
+    background-color: crimson;
+    border: none;
+    color: firebrick;
+    font-weight: bold;
+    font-size: 15px;
+    color: black;
+    cursor: pointer;
+}
+
+.leftClass {
+    padding: 20px;
+    background-color: #222222;
+    border-radius: 10px;
+}
+
+.title2 {
+    color: rgb(232, 232, 232);
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.img1 {
+    width: 100%;
+    height: 25vh; /* Adjust this value as needed for desired height */
+    border: 2px solid firebrick;
+    box-shadow: 0 0 10px crimson;
+}
+.img2 {
+    width: 100%;
+    height: 25vh; /* Adjust this value as needed for desired height */
+    border: 2px solid palevioletred;
+    box-shadow: 0 0 10px pink;
+}
+.img3 {
+    width: 100%;
+    height: 25vh; /* Adjust this value as needed for desired height */
+    border: 2px solid sandybrown;
+    box-shadow: 0 0 10px orange;
+}
+.img4 {
+    width: 100%;
+    height: 25vh; /* Adjust this value as needed for desired height */
+    border: 2px solid lightgray;
+    box-shadow: 0 0 10px gray;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+ul {
+    list-style: none;
+    margin-left: 40px;
+    margin-right: 40px;
+    color: rgb(232, 232, 232);
+}
+
+.column1,
+.column2,
+.column3,
+.column4 {
+    flex: 1; /* Make all columns take up equal space */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align content vertically */
+    border-right: 2px solid #fff; /* Add border to separate columns */
+    padding-right: 10px; /* Add padding to separate content from border */
+}
+
+.column1:last-child,
+.column2:last-child,
+.column3:last-child ,
+.column4:last-child{
+    border-right: none; /* Remove border from last column */
+}
+
+.sectionTwo {
+    margin-top: 150px;
+    margin-bottom: 200px;
+    border-top: 2px solid #fff; /* Add border to separate from Section One */
+    display: flex;
+    justify-content: center; /* Center align content horizontally */
+    align-items: center;
+    text-align: right;
+}
+
+.btn1,
+.btn2,
+.btn3,
+.btn4 {
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.btn1 {
+    background-color: crimson;
+    border: none;
+    color: black;
+    margin-top: 15px;
+}
+
+.btn2 {
+    background-color: palevioletred;
+    border: none;
+    color: white;
+}
+
+.btn3 {
+    background-color: sandybrown;
+    border: none;
+    color: black;
+    margin-top: 40px;
+}
+
+.btn4 {
+    background-color: lightgrey;
+    border: none;
+    color: black;
+    margin-top: 40px;
+}
+
+/* Adjust font size for the "View Character" sections of Tanjiro and Nezuko */
+.column1 .p2 {
+    font-size: 16.1px; /* Adjust font size for Tanjiro section */
+    color: #FF5733; /* Adjust color for Tanjiro to fire red */
+    text-align: left;
+}
+
+.column2 .p2 {
+    font-size: 21.1px; /* Adjust font size for Nezuko section */
+    color: #FFC0CB; /* Add color like a pink cherry blossom for Nezuko */
+    text-align: left;
+}
+
+.column3 .p2{
+    font-size: 22.1px;
+    color: #FFFF00; /* Add lightning color for Zenitsu */
+    text-align: left;
+}
+.column4 .p2 {
+    font-size: 22.1px; /* Adjust font size for Tanjiro section */
+    color:gray; /* Adjust color for Tanjiro to fire red */
+    text-align: left;
+}
+
+/* Animation for pop-up effect */
+.img1,
+.img2,
+.img3,
+.img4 {
+    transition: transform 0.3s ease;
+    transform: translate(-50% -50%);
+}
+
+/* Apply scale transformation on hover */
+.img1:hover,
+.img2:hover,
+.img3:hover,
+.img4:hover {
+    transform: scale(1.1);
+}
+/* Center images within columns */
+.img1,
+.img2,
+.img3,
+.img4 {
+    margin: auto; /* Center the images horizontally */
+    display: block; /* Ensure the images are displayed as block elements */
+}
+/* Animation for smooth appearing effect */
+@keyframes scrollingMotion {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Apply animation to all sections */
+.sectionOne > *,
+.sectionTwo {
+    opacity: 0;
+    animation: scrollingMotion 0.5s ease-in-out forwards;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #16151d;
+    z-index: 1000;
+  }
+  
+  .title {
+    color: #FF5733;
+    font-size: 24px;
+    margin-left: 20px;
+  }
+  
+  .navbar {
+    float: right;
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar ul li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  /* Navigation color */
+.navbar ul li a {
+    color: #FF5733; /* Set navigation link color to match Demon Slayer theme */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Navigation hover effect */
+.navbar ul li a:hover {
+    color: #FFC0CB; /* Change hover color to a pink shade */
+}
+
+/* For screens up to 600px wide */
+@media only screen and (max-width: 600px) {
+    .modal-content {
+        width: 90%; /* Adjust width for smaller screens */
+    }
+
+    /* Adjust other styles as needed for smaller screens */
+}
+
+/* For screens between 600px and 900px wide */
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+    .modal-content {
+        width: 70%; /* Adjust width for medium-sized screens */
+    }
+
+    /* Adjust other styles as needed for medium-sized screens */
+}
+
+/* For screens larger than 900px wide */
+@media only screen and (min-width: 901px) {
+    .modal-content {
+        width: 50%; /* Adjust width for larger screens */
+    }
+
+    /* Adjust other styles as needed for larger screens */
+}

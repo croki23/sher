@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="banner">
+        <div class="navbar">
+           <a href="https://www.facebook.com/sherwin12.valledor"><img src="d.jpg " class="logo"></a>
+            <ul>
+                <li><a href="What I learned/index.html" onclick="return navigateToPage('What I learned/index.html')">What I learned</a></li>
+                <li><a href="Activity 1/index.html" onclick="return navigateToPage('Activity 1/index.html')">Activity 1</a></li>
+                <li><a href="Activity 2/index.html" onclick="return navigateToPage('Activity 2/index.html')">Activity 2</a></li>
+                <li><a href="Activity 3/index.html" onclick="return navigateToPage('Activity 3/index.html')">Activity 3</a></li>
+                <li><a href="Activity 4/pages/home.html" onclick="return navigateToPage('Activity 4/pages/home.html')">Activity 4</a></li>
+                <li><a href="Activity 5/pages/index.html" onclick="return navigateToPage('Activity 5/pages/index.html')">Activity 5</a></li> 
+                <li><a href="Activity 6/index.html" onclick="return navigateToPage('Activity 6/index.html')">Activity 6</a></li>
+            </ul>
+    </div>
+    <div class="content">
+        <h3>Hi,<a href="https://www.messenger.com/t/100001943520949" class="name">Sherwin Valledor</a> GCC Student</h3>
+        <h1>My Compilation Of Activities</h1>
+        <br>WS 101: This page represents the folder of all the activities, I created on the year 2024</p>
+    <div>
+        <button type="button" id="playButton"><span></span> Play Music</button>
+        <button type="button" id="pauseButton"><span></span> Pause Music</button>
+    </div>
+    <audio id="myAudio" src="OneRepublic - I Aint Worried.mp3"></audio>
+</div>
+
+<script>
+    const playButton = document.getElementById('playButton');
+    const pauseButton = document.getElementById('pauseButton');
+    const audio = document.getElementById('myAudio');
+    let isMusicPlaying = false;
+
+    const isMusicPlayingBefore = localStorage.getItem('isMusicPlaying');
+    if (isMusicPlayingBefore === 'true') {
+        audio.play();
+        isMusicPlaying = true;
+    }
+
+    playButton.addEventListener('click', () => {
+        audio.play();
+        isMusicPlaying = true;
+        localStorage.setItem('isMusicPlaying', 'true');
+    });
+
+    pauseButton.addEventListener('click', () => {
+        audio.pause();
+        isMusicPlaying = false;
+        localStorage.setItem('isMusicPlaying', 'false');
+    });
+
+    function navigateToPage(pageURL) {
+        if (isMusicPlaying) {
+            alert("Please pause the music before navigating.");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    window.addEventListener('beforeunload', () => {
+        localStorage.removeItem('isMusicPlaying');
+    });
+</script>
+
+</body>
+</html>
